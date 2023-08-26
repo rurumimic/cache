@@ -427,3 +427,8 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,tags,emacs,linux,macos,windows,visualstudiocode,rust,c,c++,vagrant,node,redis
 
+.clangd
+
+# Added by cargo
+
+/target

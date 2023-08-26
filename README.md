@@ -1,9 +1,29 @@
 # Cache
 
-## Ref
+In-memory key-value store.
 
-### Cache Servers
+## Getting Started
 
-- [memcached.org](https://memcached.org/)
-- aws [memcached](https://aws.amazon.com/memcached/?nc1=h_ls)
+```bash
+cargo run
+```
+
+### Client
+
+```bash
+telnet 127.0.0.1 11211
+
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+hello
+^]
+telnet> quit
+```
+
+---
+
+## Contents
+
+- [docs](docs/README.md)
 
