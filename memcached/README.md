@@ -15,7 +15,6 @@
 
 ```bash
 sudo apt isntall memcached
-sudo yum install memcached
 ```
 
 ---
@@ -32,4 +31,8 @@ git clone https://github.com/memcached/memcached.git
 
 - [libevent](https://libevent.org): [docs](https://libevent.org/libevent-book/), [repo](https://github.com/libevent/libevent)
   - [macports](https://ports.macports.org/port/libevent/details/): [Portfile](https://github.com/macports/macports-ports/blob/master/devel/libevent/Portfile)
+
+```bash
+sudo apt install libevent-dev
+```
 
