@@ -11,18 +11,25 @@
 
 ---
 
-## Source Code
-
-```bash
-git clone https://github.com/memcached/memcached.git
-```
-
----
-
 ## Install
 
 ```bash
 sudo apt isntall memcached
 sudo yum install memcached
 ```
+
+---
+
+## Source Code
+
+```bash
+git clone https://github.com/memcached/memcached.git
+```
+
+### Library
+
+#### libevent
+
+- [libevent](https://libevent.org): [docs](https://libevent.org/libevent-book/), [repo](https://github.com/libevent/libevent)
+  - [macports](https://ports.macports.org/port/libevent/details/): [Portfile](https://github.com/macports/macports-ports/blob/master/devel/libevent/Portfile)
 
