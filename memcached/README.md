@@ -1,5 +1,7 @@
 # Memcached
 
+Read [memcached.c](docs/README.md)
+
 ## Links
 
 - [memcached.org](https://memcached.org/)
@@ -14,6 +16,7 @@
 ## Install
 
 ```bash
+# ubuntu
 sudo apt isntall memcached
 ```
 
@@ -68,24 +71,5 @@ CompileFlags:
 
 ### Library
 
-#### libevent
-
-- [libevent](https://libevent.org): [docs](https://libevent.org/libevent-book/), [repo](https://github.com/libevent/libevent)
-  - [macports](https://ports.macports.org/port/libevent/details/): [Portfile](https://github.com/macports/macports-ports/blob/master/devel/libevent/Portfile)
-
-```bash
-# ubuntu
-sudo apt install libevent-dev
-
-# mac
-sudo port install libevent
-```
-
-##### Build libevent
-
-```bash
-mkdir build && cd build
-cmake ..     # Default to Unix Makefiles.
-make
-```
+- [libevent](/libevent/README.md)
 
