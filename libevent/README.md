@@ -36,3 +36,29 @@ cmake ..     # Default to Unix Makefiles.
 make
 ```
 
+#### clangd
+
+- [bear](https://github.com/rizsotto/Bear)
+
+```bash
+make clean
+bear -- make
+```
+
+##### .clangd
+
+```yml
+CompileFlags:
+  Add:
+    - "-I./include"
+    - "-I./build/include/"
+```
+
+---
+
+## Examples
+
+libevent.git: `/sample`
+
+- [helloworld.c](/libevent/examples/helloworld/main.c)
+
