@@ -60,5 +60,5 @@ CompileFlags:
 
 libevent.git: `/sample`
 
-- [helloworld.c](/libevent/examples/helloworld/main.c)
+- [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
 

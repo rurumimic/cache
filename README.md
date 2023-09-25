@@ -11,5 +11,5 @@
 
 - [libevent](/libevent/README.md)
   - examples
-    - [helloworld.c](/libevent/examples/helloworld/main.c)
+    - [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
 
