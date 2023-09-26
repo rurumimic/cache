@@ -17,7 +17,7 @@ Read [memcached.c](docs/README.md)
 
 ```bash
 # ubuntu
-sudo apt isntall memcached
+sudo apt install memcached
 ```
 
 ---
@@ -59,12 +59,13 @@ mkdir /<ABSOLUTE_PATH>/dist
 
 ```bash
 ./autogen.sh
-./configure --prefix=/<ABSOLUTE_PATH/dist
+./configure --prefix=/<ABSOLUTE_PATH>/dist
 make
 make install
 ```
 
 ```bash
+<ABSOLUTE_PATH>/dist
 ├── bin
 │   └── memcached
 ├── include
