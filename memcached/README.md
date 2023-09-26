@@ -48,8 +48,22 @@ export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 ```bash
 ./autogen.sh
-./configure
+./configure --prefix=/<ABSOLUTE_PATH/dist
 make
+make install
+```
+
+```bash
+├── bin
+│   └── memcached
+├── include
+│   └── memcached
+│       ├── protocol_binary.h
+│       └── xxhash.h
+└── share
+    └── man
+        └── man1
+            └── memcached.1
 ```
 
 #### clangd
@@ -67,6 +81,7 @@ bear -- make
 CompileFlags:
   Add:
     - "-include=config.h"
+    - "-I/<ABSOLUTE_PATH>/dist/include"
 ```
 
 ### Library
