@@ -1,6 +1,46 @@
 # Read memcached.c
 
-## main function
+- [struct conn](conn) in `memcached.h`
+- [int main()](main) in `memcached.c`
+
+## memcached.h
+
+### conn
+
+```c
+struct conn {
+    sasl_conn_t *sasl_conn;
+    int    sfd;
+    // bool x 8
+    // TLS: SSL, char*, bool
+    enum conn_states  state;
+    // ...
+    struct event event;
+    short  ev_flags;
+    short  which;   /** which events were just triggered */
+
+    char   *rbuf;   /** buffer to read commands into */
+    char   *rcurr;  /** but if we parsed some already, this is where we stopped */
+    int    rsize;   /** total allocated size of rbuf */
+    int    rbytes;  /** how much data, starting from rcur, do we have unparsed */
+
+    // ...
+
+    void   *item;     /* for commands set/add/replace  */
+
+    // ...
+
+    LIBEVENT_THREAD *thread; /* Pointer to the thread object serving this connection */
+    int (*try_read_command)(conn *c); /* pointer for top level input parser */
+    ssize_t (*read)(conn  *c, void *buf, size_t count);
+    ssize_t (*sendmsg)(conn *c, struct msghdr *msg, int flags);
+    ssize_t (*write)(conn *c, void *buf, size_t count);
+};
+```
+
+## memcached.c
+
+### main
 
 ```c
 static struct event_base *main_base; // event2/event_struct.h
