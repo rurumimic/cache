@@ -36,12 +36,23 @@ git clone https://github.com/memcached/memcached.git
 #### Environment variables
 
 ```bash
-# mac
 export CC=clang
 export CXX=clang++
+```
+
+```bash
+# macports
 export LDFLAGS="-L/opt/local/lib"
 export CPPFLAGS="-I/opt/local/include"
 export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+```
+
+#### Install Prefix
+
+Anywhere you want to install:
+
+```bash
+mkdir /<ABSOLUTE_PATH>/dist
 ```
 
 #### Make

@@ -8,8 +8,10 @@ make
 ```
 
 ```bash
+# use system
 clang -v -o a.out -levent -Wall -W -pedantic main.c
-# or
+
+# or custom
 clang -v -o a.out \
 -L/<ABSOLUTE_PATH>/dist/lib \
 -I/<ABSOLUTE_PATH>/dist/include \
@@ -21,9 +23,14 @@ main.c
 ## Run
 
 ```bash
+# use system
 ./a.out
-# or
+
+# macos
 DYLD_LIBRARY_PATH=/<ABSOLUTE_PATH>/dist/lib ./a.out
+
+# linux
+LD_LIBRARY_PATH=/<ABSOLUTE_PATH>/dist/lib ./a.out
 ```
 
 ```bash

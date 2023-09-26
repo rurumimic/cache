@@ -30,12 +30,19 @@ git clone https://github.com/libevent/libevent.git
 
 ### Build
 
-#### Install PATH
+#### Environment variables
+
+```bash
+export CC=clang
+export CXX=clang++
+```
+
+#### Install Prefix
 
 Anywhere you want to install:
 
 ```bash
-mkdir …/dist
+mkdir /<ABSOLUTE_PATH>/dist
 ```
 
 #### CMake
@@ -44,21 +51,28 @@ mkdir …/dist
 mkdir build && cd build
 ```
 
-
 ```bash
-cmake .. …/dist
+cmake -S .. -B . --install-prefix=/<ABSOLUTE_PATH>/dist
 
 # ...
-CMAKE_INSTALL_PREFIX:     …/dist
+CMAKE_INSTALL_PREFIX:     /<ABSOLUTE_PATH>/dist
 # ...
 -- Configuring done
 -- Generating done
 -- Build files have been written to: …/libevent/build
 ```
 
-
 ```bash
 make
+```
+
+#### clangd
+
+- [bear](https://github.com/rizsotto/Bear)
+
+```bash
+make clean
+bear -- make
 ```
 
 #### Install
@@ -87,13 +101,9 @@ Install the project...
 └── lib/
     ├── cmake/libevent/*.cmake
     ├── libevent.a
-    ├── libevent_core-2.2.1.dylib
     ├── libevent_core.a
-    ├── libevent_extra-2.2.1.dylib
     ├── libevent_extra.a
-    ├── libevent_openssl-2.2.1.dylib
     ├── libevent_openssl.a
-    ├── libevent_pthreads-2.2.1.dylib
     ├── libevent_pthreads.a
     └── pkgconfig/*.pc
 ```
