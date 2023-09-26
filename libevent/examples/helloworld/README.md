@@ -9,9 +9,22 @@ make
 
 ```bash
 clang -v -o a.out -levent -Wall -W -pedantic main.c
+# or
+clang -v -o a.out \
+-L/<ABSOLUTE_PATH>/dist/lib \
+-I/<ABSOLUTE_PATH>/dist/include \
+-levent \
+-Wall -W -pedantic \
+main.c
 ```
 
 ## Run
+
+```bash
+./a.out
+# or
+DYLD_LIBRARY_PATH=/<ABSOLUTE_PATH>/dist/lib ./a.out
+```
 
 ```bash
 ./a.out 
@@ -31,7 +44,14 @@ done
 ### Telnet
 
 ```bash
+sudo port install inetutils
+brew install inetutils
+```
+
+```bash
 telnet 127.0.0.1 9995
+# or
+gtelent 127.0.0.1 9995
 
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
@@ -43,7 +63,7 @@ Connection closed by foreign host.
 ### Curl
 
 ```bash
-curl telnet:://127.0.0.1:9995
+curl telnet://127.0.0.1:9995
 Hello, World!
 
 # CTRL-C
