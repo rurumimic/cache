@@ -50,9 +50,19 @@ int main(int argc, char **argv) {
 
   struct event *signal_event;
   signal_event = evsignal_new(base, SIGINT, signal_callback, (void *)base);
-  if (signal_event == NULL || event_add(signal_event, NULL) < 0) {
-    fprintf(stderr, "Could not create/add a signal event!\n");
-    return 1;
+  if (signal_event == NULL) {
+    fprintf(stderr, "Could not create a signal event!\n");
+    evconnlistener_free(listener);
+    event_base_free(base);
+    return 2;
+  }
+
+  if (event_add(signal_event, NULL) == -1) {
+    fprintf(stderr, "Could not add a signal event!\n");
+    evconnlistener_free(listener);
+    event_free(signal_event);
+    event_base_free(base);
+    return 3;
   }
 
   event_base_dispatch(base); // event dispatching loop
@@ -117,4 +127,3 @@ static void signal_callback(evutil_socket_t sig, short events,
 
   event_base_loopexit(base, &delay);
 }
-

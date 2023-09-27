@@ -124,4 +124,5 @@ CompileFlags:
 libevent.git: `/sample`
 
 - [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
+- [Signal](/libevent/examples/signal/README.md): [main.c](/libevent/examples/signal/main.c)
 
