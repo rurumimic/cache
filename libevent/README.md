@@ -10,6 +10,16 @@
 
 ---
 
+## Examples
+
+libevent.git: `/sample`
+
+- [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
+- [Signal](/libevent/examples/signal/README.md): [main.c](/libevent/examples/signal/main.c)
+- [Websocket](/libevent/examples/websocket/README.md): [main.c](/libevent/examples/websocket/main.c)
+
+---
+
 ## Install
 
 ```bash
@@ -119,10 +129,20 @@ CompileFlags:
 
 ---
 
-## Examples
+## ChangeLogs
 
-libevent.git: `/sample`
+### 2.2.1-alpha
 
-- [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
-- [Signal](/libevent/examples/signal/README.md): [main.c](/libevent/examples/signal/main.c)
+[release-2.2.1-alpha](https://github.com/libevent/libevent/releases/tag/release-2.2.1-alpha)
+
+- wepoll backend (by Nick Grifka, @nigriMSFT, #1006)
+- signalfd backend (by Dmitry Antipov, @dmantipov, #1342)
+- DNS over TCP for evdns (by ayuseleznev, @seleznevae, #1004)
+- websockets layer (by Dmitry Ilyin, @widgetii, #1322)
+- "prepare" and "check" watchers (by Dan Rosen, @mergeconflict, #793)
+- MbedTLS support (by okhowang, @okhowang, #1028)
+- unix domain sockets for HTTP (by Sean Young, @seanyoung, #322)
+- cmake over autotools/automake
+- extensive CI (significant work by converting to github actions had been done by @ygj6, #951)
+- documentation deploy - https://libevent.org/doc/
 
