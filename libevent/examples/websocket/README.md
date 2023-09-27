@@ -62,21 +62,28 @@ Open: [index.html](index.html)
 ```log
 Server runs
 
-New client joined from 127.0.0.1:37212
-'127.0.0.1:37212' renamed itself to 'Keanu'
+New client joined from 127.0.0.1:57648
+[127.0.0.1:57648] Hello?
+'127.0.0.1:57648' renamed itself to 'Keanu'
 [Keanu] Hi, I'm Keanu
 
-New client joined from 127.0.0.1:37228
-'127.0.0.1:37228' renamed itself to 'Denzel'
+New client joined from 127.0.0.1:57656
+'127.0.0.1:57656' renamed itself to 'Denzel'
 [Denzel] Hi, I'm Denzel
+
+# after 1 sec
+
 [Denzel] Bye, Keanu
 'Denzel' left the chat
 'Denzel' disconnected
 
+# after 1 sec
+
 [Keanu] Bye, Denzel
 
-^C Interrupt signal received
+# CTRL-C
 
+Interrupt signal received
 Active connections: 1
 'Keanu' disconnected
 ```
@@ -84,21 +91,29 @@ Active connections: 1
 ### Client Log
 
 ```log
-[Open]
-index.js:26 [Message] '127.0.0.1:37212' renamed itself to 'Keanu'
-index.js:16 [Open]
-index.js:46 [Message] '127.0.0.1:37228' renamed itself to 'Denzel'
-index.js:26 [Message] [Keanu] Hi, I'm Keanu
-index.js:26 [Message] '127.0.0.1:37228' renamed itself to 'Denzel'
-index.js:26 [Message] [Denzel] Hi, I'm Denzel
-index.js:46 [Message] [Denzel] Hi, I'm Denzel
-index.js:46 [Message] [Denzel] Bye, Keanu
-index.js:26 [Message] [Denzel] Bye, Keanu
-index.js:2 WebSocket connection to 'ws://localhost:3030/ws' failed: Data frame received after close
-index.js:59 [Error]
-index.js:54 [Dead] code=1006 reason=
-index.js:26 [Message] 'Denzel' left the chat
-index.js:26 [Message] [Keanu] Bye, Denzel
-index.js:34 [Dead] code=1006 reason=
+[Keanu Open]
+[Message] [127.0.0.1:57648] Hello?
+[Message] '127.0.0.1:57648' renamed itself to 'Keanu'
+[Message] [Keanu] Hi, I'm Keanu
+
+[Denzel Open]
+[Message] '127.0.0.1:57656' renamed itself to 'Denzel'
+[Message] [Denzel] Hi, I'm Denzel
+
+# after 1 sec
+
+[Message] [Denzel] Bye, Keanu
+WebSocket connection to 'ws://localhost:3030/ws' failed: Data frame received after close
+[Denzel Error]
+[Denzel Dead] code=1006 reason=
+[Message] 'Denzel' left the chat
+
+# after 1 sec
+
+[Message] [Keanu] Bye, Denzel
+
+# CTRL-C
+
+[Keanu Dead] code=1006 reason=
 ```
 

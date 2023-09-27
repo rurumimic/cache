@@ -4,7 +4,8 @@ let denzel = new WebSocket("ws://localhost:3030/ws");
 /* KEANU */
 
 keanu.onopen = function (e) {
-  console.log("[Open]");
+  console.log("[Keanu Open]");
+  keanu.send("Hello?");
   keanu.send("/name Keanu");
   keanu.send("Hi, I'm Keanu");
   setTimeout(function() {
@@ -13,7 +14,7 @@ keanu.onopen = function (e) {
 };
 
 denzel.onopen = function (e) {
-  console.log("[Open]");
+  console.log("[Denzel Open]");
   denzel.send("/name Denzel");
   denzel.send("Hi, I'm Denzel");
   setTimeout(function() {
@@ -24,37 +25,38 @@ denzel.onopen = function (e) {
 
 keanu.onmessage = function (event) {
   console.log(`[Message] ${event.data}`);
-  // keanu.close(1000, "[Close]");
+  // keanu.close(1000, "[Keanu Close]");
 };
 
 keanu.onclose = function (event) {
   if (event.wasClean) {
-    console.log(`[Closed] code=${event.code} reason=${event.reason}`);
+    console.log(`[Keanu Closed] code=${event.code} reason=${event.reason}`);
   } else {
-    console.log(`[Dead] code=${event.code} reason=${event.reason}`);
+    console.log(`[Keanu Dead] code=${event.code} reason=${event.reason}`);
   }
 };
 
 keanu.onerror = function (error) {
-  console.log(`[Error]`);
+  console.log(`[Keanu Error]`);
 };
 
 
 /* DENZEL */
 
 denzel.onmessage = function (event) {
-  console.log(`[Message] ${event.data}`);
-  // denzel.close(1000, "[Close]");
+  // console.log(`[Message] ${event.data}`);
+  // denzel.close(1000, "[Denzel Close]");
 };
 
 denzel.onclose = function (event) {
   if (event.wasClean) {
-    console.log(`[Closed] code=${event.code} reason=${event.reason}`);
+    console.log(`[Denzel Closed] code=${event.code} reason=${event.reason}`);
   } else {
-    console.log(`[Dead] code=${event.code} reason=${event.reason}`);
+    console.log(`[Denzel Dead] code=${event.code} reason=${event.reason}`);
   }
 };
 
 denzel.onerror = function (error) {
-  console.log(`[Error]`);
+  console.log(`[Denzel Error]`);
 };
+
