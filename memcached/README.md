@@ -11,6 +11,10 @@ Read [memcached.c](docs/README.md)
 - video
   - [Facebook and memcached - Tech Talk](https://youtu.be/UH7wkvcf0ys?si=FOHJg_3YAtTGD68r)
 
+### Library
+
+- [libevent](/libevent/README.md)
+
 ---
 
 ## Install
@@ -18,6 +22,42 @@ Read [memcached.c](docs/README.md)
 ```bash
 # ubuntu
 sudo apt install memcached
+```
+
+---
+
+## Run
+
+### Server Logs
+
+```bash
+./memcached
+```
+
+### Client Logs
+
+```bash
+telnet localhost 11211
+```
+
+```bash
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+
+stat
+
+set hello 0 30 5 # set key flag 30s 5 
+world
+STORED
+
+get hello
+VALUE hello 0 5
+world
+END
+
+^]
+telnet>
 ```
 
 ---
@@ -59,7 +99,18 @@ mkdir /<ABSOLUTE_PATH>/dist
 
 ```bash
 ./autogen.sh
-./configure --prefix=/<ABSOLUTE_PATH>/dist
+```
+
+```bash
+./configure \
+--prefix=/<ABSOLUTE_PATH_MEMCACHED>/dist \
+--with-libevent=/<ABSOLUTE_PATH_LIBEVENT>/dist
+
+checking for gcc... clang
+checking for libevent directory... …/libevent/dist
+```
+
+```bash
 make
 make install
 ```
@@ -95,8 +146,4 @@ CompileFlags:
     - "-include=config.h"
     - "-I/<ABSOLUTE_PATH>/dist/include"
 ```
-
-### Library
-
-- [libevent](/libevent/README.md)
 
