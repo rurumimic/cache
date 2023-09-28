@@ -62,58 +62,36 @@ Open: [index.html](index.html)
 ```log
 Server runs
 
-New client joined from 127.0.0.1:57648
-[127.0.0.1:57648] Hello?
-'127.0.0.1:57648' renamed itself to 'Keanu'
+New client joined from 127.0.0.1:60343
+[127.0.0.1:60343] Hello?
+'127.0.0.1:60343' renamed itself to 'Keanu'
+
+New client joined from 127.0.0.1:60352
+'127.0.0.1:60352' renamed itself to 'Denzel'
+
 [Keanu] Hi, I'm Keanu
-
-New client joined from 127.0.0.1:57656
-'127.0.0.1:57656' renamed itself to 'Denzel'
 [Denzel] Hi, I'm Denzel
-
-# after 1 sec
-
 [Denzel] Bye, Keanu
 'Denzel' left the chat
 'Denzel' disconnected
-
-# after 1 sec
-
 [Keanu] Bye, Denzel
 
 # CTRL-C
 
-Interrupt signal received
+Interrupt: 2 signal received
+
 Active connections: 1
 'Keanu' disconnected
 ```
 
-### Client Log
+### Client View
 
-```log
-[Keanu Open]
-[Message] [127.0.0.1:57648] Hello?
-[Message] '127.0.0.1:57648' renamed itself to 'Keanu'
-[Message] [Keanu] Hi, I'm Keanu
-
-[Denzel Open]
-[Message] '127.0.0.1:57656' renamed itself to 'Denzel'
-[Message] [Denzel] Hi, I'm Denzel
-
-# after 1 sec
-
-[Message] [Denzel] Bye, Keanu
-WebSocket connection to 'ws://localhost:3030/ws' failed: Data frame received after close
-[Denzel Error]
-[Denzel Dead] code=1006 reason=
-[Message] 'Denzel' left the chat
-
-# after 1 sec
-
-[Message] [Keanu] Bye, Denzel
-
-# CTRL-C
-
-[Keanu Dead] code=1006 reason=
+```txt
+/name Keanu
+Hi, I'm Keanu
+/quit
 ```
+
+![chat](chat.png)
+
 
