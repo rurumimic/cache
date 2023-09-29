@@ -1,30 +1,18 @@
 use tokio::signal;
 use tokio::time;
 use tokio::task::JoinHandle;
-use tokio::sync::{mpsc, broadcast, oneshot};
+// use tokio::sync::{mpsc, broadcast, oneshot};
 use tokio_util::sync::CancellationToken;
 
-async fn task(token: CancellationToken, i: u64) -> u64 {
-    println!("Task {}.", i);
-
-    tokio::select! {
-        _ = token.cancelled() => {
-            println!("Task {} shutting down.", i);
-        },
-        _ = time::sleep(time::Duration::from_secs(3)) => {
-            println!("Timeout 3 sec");
-        }
-    }
-
-    i
-}
+use tracing::{info, error};
 
 #[tokio::main]
-async fn main() {
+async fn main() -> cache::Result<()> {
     println!("Hello!");
 
-    let mut handles: Vec<JoinHandle<u64>> = Vec::new();
+    cache::init_tracing()?;
 
+    let mut handles: Vec<JoinHandle<u64>> = Vec::new();
     let cancel_token = CancellationToken::new();
 
     for i in 1..10 {
@@ -43,7 +31,6 @@ async fn main() {
             cancel_token.cancel();
         },
         _ = time::sleep(time::Duration::from_secs(2)) => {
-            println!("Timeout!");
             cancel_token.cancel();
         },
     }
@@ -51,11 +38,29 @@ async fn main() {
     for handle in handles {
         let ret = handle.await;
         match ret {
-            Ok(ok) => println!("Ok: {:?}", ok),
-            Err(error) => println!("Err: {:?}", error),
+            Ok(ok) => info!("Ok: {:?}", ok),
+            Err(error) => error!("Err: {:?}", error),
         }
     }
 
     println!("Bye.");
+
+    Ok(())
+}
+
+#[tracing::instrument]
+async fn task(token: CancellationToken, i: u64) -> u64 {
+    println!("Task {}.", i);
+
+    tokio::select! {
+        _ = token.cancelled() => {
+            info!("Task {} shutting down.", i);
+        },
+        _ = time::sleep(time::Duration::from_secs(3)) => {
+            info!("Timeout 3 seconds.");
+        }
+    }
+
+    i
 }
 
