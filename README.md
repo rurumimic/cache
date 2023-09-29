@@ -18,6 +18,7 @@ cargo new cache
 
 ```bash
 cargo add tokio --features full
+cargo add tokio-util
 ```
 
 ---
