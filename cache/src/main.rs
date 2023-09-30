@@ -30,7 +30,7 @@ async fn main() -> cache::Result<()> {
             println!("Shutdown! CTRL-C");
             cancel_token.cancel();
         },
-        _ = time::sleep(time::Duration::from_secs(2)) => {
+        _ = time::sleep(time::Duration::from_secs(10)) => {
             cancel_token.cancel();
         },
     }
@@ -56,7 +56,7 @@ async fn task(token: CancellationToken, i: u64) -> u64 {
         _ = token.cancelled() => {
             info!("Task {} shutting down.", i);
         },
-        _ = time::sleep(time::Duration::from_secs(3)) => {
+        _ = time::sleep(time::Duration::from_secs(30)) => {
             info!("Timeout 3 seconds.");
         }
     }
