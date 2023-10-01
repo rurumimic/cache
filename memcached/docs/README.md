@@ -1,9 +1,34 @@
 # Read memcached.c
 
-- [struct conn](conn) in `memcached.h`
-- [int main()](main) in `memcached.c`
+- `memcached.h`
+  - [enum conn_states](#conn_states)
+  - [struct conn](#conn)
+- `memcached.c`
+  - [static void drive_machine(conn \*c)](#drive_machine)
+  - [int main (int argc, char \*\*argv)](#main)
 
 ## memcached.h
+
+### conn_states
+
+```c
+enum conn_states {
+    conn_listening,  /**< the socket which listens for connections */
+    conn_new_cmd,    /**< Prepare connection for next command */
+    conn_waiting,    /**< waiting for a readable socket */
+    conn_read,       /**< reading in a command line */
+    conn_parse_cmd,  /**< try to parse a command from the input buffer */
+    conn_write,      /**< writing out a simple response */
+    conn_nread,      /**< reading in a fixed number of bytes */
+    conn_swallow,    /**< swallowing unnecessary bytes w/o storing */
+    conn_closing,    /**< closing this connection */
+    conn_mwrite,     /**< writing out many items sequentially */
+    conn_closed,     /**< connection is closed */
+    conn_watch,      /**< held by the logger thread as a watcher */
+    conn_io_queue,   /**< wait on async. process to get response object */
+    conn_max_state   /**< Max state value (used for assertion) */
+};
+```
 
 ### conn
 
@@ -39,6 +64,41 @@ struct conn {
 ```
 
 ## memcached.c
+
+### drive_machine
+
+```c
+static void drive_machine(conn *c) {
+    bool stop = false;
+    int sfd;
+    socklen_t addrlen;
+    struct sockaddr_storage addr;
+    int nreqs = settings.reqs_per_event;
+    int res;
+    const char *str;
+
+    while (!stop) {
+        switch(c->state) {
+        case conn_listening:
+            addrlen = sizeof(addr);
+            sfd = accept4(c->sfd, (struct sockaddr *)&addr, &addrlen, SOCK_NONBLOCK); 
+            dispatch_conn_new(sfd, 
+                              conn_new_cmd, 
+                              EV_READ | EV_PERSIST, 
+                              READ_BUFFER_CACHED, 
+                              c->transport, 
+                              ssl_v, 
+                              c->tag, 
+                              c->protocol);
+            stop = true;
+            break;
+        // ...
+        case conn_max_state:
+            assert(false);
+            break;
+    }
+}
+```
 
 ### main
 
@@ -122,4 +182,3 @@ int main (int argc, char **argv) {
     return retval;
 }
 ```
-
