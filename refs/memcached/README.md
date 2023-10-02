@@ -1,9 +1,10 @@
 # Memcached
 
 Read [memcached.c](docs/README.md), memcached.h
-- [items.c](items.md)
+- [items.c](docs/items.md)
 - [thread.c](docs/thread.md)
 - [proto_text.c](docs/proto_text.md)
+- [slabs.c](docs/slabs.md)
 
 ## Links
 
