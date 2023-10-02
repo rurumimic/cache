@@ -1,6 +1,7 @@
 # Memcached
 
 Read [memcached.c](docs/README.md), memcached.h
+- [items.c](items.md)
 - [thread.c](docs/thread.md)
 - [proto_text.c](docs/proto_text.md)
 

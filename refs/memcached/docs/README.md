@@ -1,11 +1,14 @@
 # Read memcached.c
 
-- `memcached.h`
-  - [enum conn_states](#conn_states)
-  - [struct conn](#conn)
-- `memcached.c`
-  - [static void drive_machine(conn \*c)](#drive_machine)
-  - [int main (int argc, char \*\*argv)](#main)
+`memcached.h`
+
+- [enum conn_states](#conn_states)
+- [struct conn](#conn)
+
+`memcached.c`
+
+- [static void drive_machine(conn \*c)](#drive_machine)
+- [int main (int argc, char \*\*argv)](#main)
 
 ## memcached.h
 
