@@ -57,6 +57,8 @@ async fn task(cancel: CancellationToken, socket: TcpStream) {
                         break;
                     },
                 }
+
+                buf.clear();
             },
         }
     }

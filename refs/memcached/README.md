@@ -15,7 +15,7 @@ Read [memcached.c](docs/README.md), memcached.h
 
 ### Library
 
-- [libevent](/libevent/README.md)
+- [libevent](/refs/libevent/README.md)
 
 ---
 

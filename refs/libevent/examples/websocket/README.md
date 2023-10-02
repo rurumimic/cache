@@ -21,7 +21,7 @@ make: *** [Makefile:8: all]
 
 #### Latest Version
 
-[How to build libevent](/libevent/README.md)
+[How to build libevent](/refs/libevent/README.md)
 
 ```bash
 CompileFlags:

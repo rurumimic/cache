@@ -6,6 +6,10 @@ publish = false
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# [[bin]]
+# name = "server"
+# path = "src/bin/server.rs"
+
 [dependencies]
 tokio = { version = "1.32.0", features = ["full", "tracing"] }
 tokio-util = "0.7.9"

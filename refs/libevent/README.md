@@ -14,9 +14,9 @@
 
 libevent.git: `/sample`
 
-- [Hello, World!](/libevent/examples/helloworld/README.md): [main.c](/libevent/examples/helloworld/main.c)
-- [Signal](/libevent/examples/signal/README.md): [main.c](/libevent/examples/signal/main.c)
-- [Websocket](/libevent/examples/websocket/README.md): [main.c](/libevent/examples/websocket/main.c)
+- [Hello, World!](examples/helloworld/README.md): [main.c](examples/helloworld/main.c)
+- [Signal](examples/signal/README.md): [main.c](examples/signal/main.c)
+- [Websocket](examples/websocket/README.md): [main.c](examples/websocket/main.c)
 
 ---
 
