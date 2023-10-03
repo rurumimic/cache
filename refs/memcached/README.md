@@ -1,10 +1,19 @@
 # Memcached
 
+## Contents
+
+- [Architecture](architecture.md)
+- [DTrace](dtrace.md)
+
+## Read
+
 Read [memcached.c](docs/README.md), memcached.h
 - [items.c](docs/items.md)
 - [thread.c](docs/thread.md)
 - [proto_text.c](docs/proto_text.md)
 - [slabs.c](docs/slabs.md)
+
+---
 
 ## Links
 
@@ -107,6 +116,7 @@ mkdir /<ABSOLUTE_PATH>/dist
 
 ```bash
 ./configure \
+--enable-dtrace \
 --prefix=/<ABSOLUTE_PATH_MEMCACHED>/dist \
 --with-libevent=/<ABSOLUTE_PATH_LIBEVENT>/dist
 

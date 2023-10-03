@@ -6,6 +6,8 @@
 
 - [memcached](memcached/README.md)
   - read [memcached.c](memcached/docs/README.md)
+  - [architecture](memcached/architecture.md)
+  - [dtrace](memcached/dtrace.md)
 
 ## Event Handler
 

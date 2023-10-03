@@ -29,7 +29,7 @@ telnet> quit
 - [refs](refs/README.md)
   - memcached
     - install, build
-    - code read
+    - architecture, dtrace
   - libevent
     - install, build
     - examples: helloworld, signal, websocket
