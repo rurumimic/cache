@@ -116,7 +116,9 @@ mkdir /<ABSOLUTE_PATH>/dist
 
 ```bash
 ./configure \
---enable-dtrace \
+# --enable-asan \
+# --enable-dtrace \
+# --enable-64bit \
 --prefix=/<ABSOLUTE_PATH_MEMCACHED>/dist \
 --with-libevent=/<ABSOLUTE_PATH_LIBEVENT>/dist
 
