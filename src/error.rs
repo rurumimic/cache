@@ -19,4 +19,3 @@ impl std::fmt::Debug for Error {
         std::fmt::Display::fmt(self, f)
     }
 }
-

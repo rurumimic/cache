@@ -38,4 +38,3 @@ async fn main() -> cache::Result<()> {
 
     Ok(())
 }
-
