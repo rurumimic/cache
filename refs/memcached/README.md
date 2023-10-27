@@ -116,6 +116,7 @@ mkdir /<ABSOLUTE_PATH>/dist
 
 ```bash
 ./configure \
+# CFLAGS="-g" \
 # --enable-asan \
 # --enable-dtrace \
 # --enable-64bit \
@@ -162,4 +163,18 @@ CompileFlags:
     - "-include=config.h"
     - "-I/<ABSOLUTE_PATH>/dist/include"
 ```
+---
+
+## Debug
+
+1. Use `lldb-vscode`
+1. compile with `-g`
+1. Set breakpoints
+1. execute `dist/bin/memcached -A`
+  - `-A`: `--enable-shutdown`
+1. `telnet localhost 11211`
+1. commands
+  1. `set hello 0 30 5`, `world`
+  1. `get hello`
+  1. `shutdown`
 
