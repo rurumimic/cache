@@ -37,10 +37,23 @@ make
 ## Run
 
 ```bash
-./a.out > output 2>&1
+./a.out > leaked 2>&1
 ```
 
-### Output
+## Output
 
-- [output](output)
+- [leaked](leaked)
+- [clean](clean)
+
+### leaked
+
+```bash
+Allocated: 54784344, active: 58597376, metadata: 4352272 (n_thp 0, edata 124928, rtree 2097152), resident: 63168512, mapped: 65134592, retained: 7217152
+```
+
+### clean
+
+```bash
+Allocated: 110592, active: 118784, metadata: 4238352 (n_thp 0, edata 11008, rtree 2097152), resident: 5529600, mapped: 7606272, retained: 782336
+```
 
