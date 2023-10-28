@@ -17,3 +17,9 @@ cargo add tracing
 cargo add tracing-subscriber
 ```
 
+### jemalloc
+
+```bash
+cargo add tikv-jemallocator
+```
+
