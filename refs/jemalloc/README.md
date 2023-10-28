@@ -5,6 +5,8 @@
 - [jemalloc](https://jemalloc.net/)
   - [source](https://github.com/jemalloc/jemalloc)
   - [wiki](https://github.com/jemalloc/jemalloc/wiki/Getting-Started)
+- paper
+  - jason evans: [paper](https://papers.freebsd.org/2006/bsdcan/evans-jemalloc/)
 
 ---
 
