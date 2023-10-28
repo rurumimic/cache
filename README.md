@@ -36,4 +36,5 @@ telnet> quit
   - tokio-rs
     - mini-redis
     - examples: tracing
+  - jemalloc
 
