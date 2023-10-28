@@ -66,5 +66,9 @@ bear -- make
 
 ##### .clangd
 
-Nothing to do
+```yml
+CompileFlags:
+  Add:
+    - "-include=/<ABSOLUTE_PATH>/dist/include/jemalloc/jemalloc.h"
+```
 
