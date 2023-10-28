@@ -6,6 +6,14 @@
   - [source](https://github.com/jemalloc/jemalloc)
   - [wiki](https://github.com/jemalloc/jemalloc/wiki/Getting-Started)
 
+---
+
+## Examples
+
+- [Print stats](examples/stats/README.md): [main.c](examples/stats/main.c)
+
+---
+
 ## Build
 
 Configure:
@@ -69,6 +77,6 @@ bear -- make
 ```yml
 CompileFlags:
   Add:
-    - "-include=/<ABSOLUTE_PATH>/dist/include/jemalloc/jemalloc.h"
+    - "-I/<ABSOLUTE_PATH>/dist/include"
 ```
 

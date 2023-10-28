@@ -1,0 +1,4 @@
+CompileFlags:
+ Add:
+   - "-I/<ABSOLUTE_PATH>/dist/include"
+
