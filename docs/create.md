@@ -23,3 +23,12 @@ cargo add tracing-subscriber
 cargo add tikv-jemallocator
 ```
 
+### clap
+
+- repo: [clap](https://github.com/clap-rs/clap)
+- docs: [clap](https://docs.rs/clap/latest/clap/)
+
+```bash
+cargo add clap -F derive env
+```
+

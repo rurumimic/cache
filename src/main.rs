@@ -1,9 +1,11 @@
+use clap::Parser;
 use tokio::signal;
 use tokio::time;
 use tokio_util::sync::CancellationToken;
 
 use tracing::info;
 
+use cache::config;
 use cache::server;
 
 #[cfg(not(target_env = "msvc"))]
@@ -15,17 +17,15 @@ static GLOBAL: Jemalloc = Jemalloc;
 
 #[tokio::main]
 async fn main() -> cache::Result<()> {
+    let args = config::Args::parse();
+    let host = args.host;
+    let port = args.port;
+
     /* init */
     cache::logging::trace_init()?;
-    let listener =
-        cache::network::network_init(cache::network::DEFAULT_HOST, cache::network::DEFAULT_PORT)
-            .await?;
+    let listener = cache::network::network_init(&host, port).await?;
 
-    println!(
-        "telnet {} {}",
-        cache::network::DEFAULT_HOST,
-        cache::network::DEFAULT_PORT
-    );
+    println!("telnet {} {}", host, port);
 
     /* event loop */
     let cancel = CancellationToken::new();
