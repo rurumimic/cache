@@ -2,7 +2,13 @@
 
 In-memory key-value store.
 
+## Contents
+
+- [docs](docs/README.md)
+
 ## Getting Started
+
+### Server
 
 ```bash
 cargo run
@@ -12,7 +18,9 @@ cargo run
 
 ```bash
 telnet 127.0.0.1 11211
+```
 
+```bash
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
 Escape character is '^]'.
@@ -20,10 +28,4 @@ hello
 ^]
 telnet> quit
 ```
-
----
-
-## Contents
-
-- [docs](docs/README.md)
 
