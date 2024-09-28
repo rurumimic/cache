@@ -16,10 +16,16 @@ static GLOBAL: Jemalloc = Jemalloc;
 #[tokio::main]
 async fn main() -> cache::Result<()> {
     /* init */
-    cache::trace_init()?;
-    let listener = cache::network_init(cache::DEFAULT_HOST, cache::DEFAULT_PORT).await?;
+    cache::logging::trace_init()?;
+    let listener =
+        cache::network::network_init(cache::network::DEFAULT_HOST, cache::network::DEFAULT_PORT)
+            .await?;
 
-    println!("telnet {} {}", cache::DEFAULT_HOST, cache::DEFAULT_PORT);
+    println!(
+        "telnet {} {}",
+        cache::network::DEFAULT_HOST,
+        cache::network::DEFAULT_PORT
+    );
 
     /* event loop */
     let cancel = CancellationToken::new();
