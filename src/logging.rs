@@ -18,6 +18,6 @@ pub fn trace_init() -> Result<()> {
 
     match init {
         Ok(_) => Ok(()),
-        Err(_) => Err(Error::Configuration()),
+        Err(e) => Err(Error::Configuration(e.into())),
     }
 }
