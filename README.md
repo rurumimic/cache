@@ -11,7 +11,7 @@ In-memory key-value store.
 ### Server
 
 ```bash
-cargo run -- --host 127.0.0.1 --port 11211
+cargo run --example server -- --host 127.0.0.1 --port 11211
 ```
 
 ### Client
@@ -28,3 +28,4 @@ hello
 ^]
 telnet> quit
 ```
+

@@ -1,0 +1,18 @@
+[package]
+name = "cache"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { workspace = true }
+tikv-jemallocator = "0.5.4"
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+tracing = { workspace = true }
+
+cache-core = { path = "../cache-core" }
+
+[[example]]
+name = "server"
+
+

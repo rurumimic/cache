@@ -1,0 +1,15 @@
+[package]
+name = "cache-core"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+clap = { workspace = true }
+thiserror = { workspace = true }
+tikv-jemallocator = "0.5.4"
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
