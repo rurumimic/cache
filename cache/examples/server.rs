@@ -20,9 +20,11 @@ async fn main() -> cache::Result<()> {
 
     /* event loop */
     let cancel = CancellationToken::new();
-    let cancel2 = cancel.clone();
-    let handle = tokio::spawn(async move {
-        server::run(cancel2, listener).await;
+    let handle = tokio::spawn({
+        let cancel = cancel.clone();
+        async move {
+            server::run(cancel, listener).await;
+        }
     });
 
     /* handle server */
