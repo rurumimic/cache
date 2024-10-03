@@ -7,7 +7,6 @@ publish = false
 [dependencies]
 clap = { workspace = true }
 thiserror = { workspace = true }
-tikv-jemallocator = "0.5.4"
 tokio = { workspace = true }
 tokio-util = { workspace = true }
 tracing = { workspace = true }

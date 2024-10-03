@@ -17,12 +17,6 @@ cargo add tracing
 cargo add tracing-subscriber
 ```
 
-### jemalloc
-
-```bash
-cargo add tikv-jemallocator
-```
-
 ### clap
 
 - repo: [clap](https://github.com/clap-rs/clap)
